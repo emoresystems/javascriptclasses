@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        #password = "1234";
+
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        greet() {
+          return ` ${this.#name()}`;
+        }
+
+        #name() {
+          return `helo ${this.name} from a private method and your password is ${this.#password}`;
+        }
+      }
+
+      // admin class
+      class Admin extends User {
+        constructor(name, age) {
+          super(name, age);
+        }
+      }
+
+
+      const userone = new User('james', 30);
+      console.log(userone.greet())
+
+      // admin user
+      const adminone = new Admin('james', 30);
+      console.log(adminone.#name())
+    </script>
+  </body>
+</html>
